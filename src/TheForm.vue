@@ -49,7 +49,8 @@
       </div>
     </div>
     <div class="form-control">
-      <RatingControl />
+      <RatingControl v-model="rating"/>
+      <!-- possible to use v-model on custom components, need SPECIFIC props and custom event emitters -->
     </div>
     <div>
       <button>Save Data</button>
@@ -71,7 +72,8 @@ export default {
       referrer: 'wom',
       interest: [],
       how: null,
-      userNameValidity: 'pending'
+      userNameValidity: 'pending',
+      rating: null
     }
   },
   methods: {
@@ -81,6 +83,8 @@ export default {
       console.log(this.referrer)
       console.log(this.interest)
       console.log(this.how)
+      console.log(this.rating)
+      this.rating = null;
     },
     validateInput() {
       if (this.userName === '') {
